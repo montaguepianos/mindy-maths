@@ -55,20 +55,29 @@ def get_random_question(topic):
     """Get a random question from the specified topic."""
     print(f"[Debug] Looking for topic: '{topic}'")
     print(f"[Debug] Available topics: {list(question_bank.keys())}")
+    
+    if topic == "Image Questions":
+        # For Image Questions, only use predefined questions with images
+        questions = [q for q in question_bank[topic] if isinstance(q, dict) and q.get("image_url")]
+        print(f"[Debug] Found {len(questions)} image questions")
+        if questions:
+            question = random.choice(questions)
+            print(f"[Debug] Selected image question: {question}")
+            return question
+        print("[Debug] No image questions found")
+        return None
+    
+    # For other topics, use any available questions
     if topic in question_bank:
         questions = question_bank[topic]
         print(f"[Debug] Found {len(questions)} questions for topic '{topic}'")
-        if len(questions) > 0:
-            print(f"[Debug] First question in list: {questions[0]}")
+        if questions:
             question = random.choice(questions)
             print(f"[Debug] Selected question: {question}")
-            if isinstance(question, dict):
-                print(f"[Debug] Question has image: {question.get('image')}")
-                print(f"[Debug] Question text: {question.get('question')}")
             return question
-        else:
-            print(f"[Debug] No questions found in topic '{topic}'")
-            return None
+        print(f"[Debug] No questions found in topic '{topic}'")
+        return None
+    
     print(f"[Debug] Topic not found in question bank")
     return None
 
@@ -129,27 +138,41 @@ def solve():
             yield json.dumps({"type": "thinking", "content": "Thinking..."}) + "\n"
             
             # Check for an expected answer from a previous question
-            if "expected_answer" in session and not topic:
+            if "expected_answer" in session:
                 user_msg = conversation[-1].get("content", "") if conversation else ""
+                print(f"[Debug] Checking answer: '{user_msg}' against expected: '{session['expected_answer']}'")
                 if check_answer(user_msg, session["expected_answer"]):
-                    response_text = "That's correct! 🎉 Great job! Want another question?"
+                    response_text = "That's correct! 🎉 Great job! Would you like another image question, or shall we try a different topic?"
                     session.pop("expected_answer", None)
                 else:
-                    response_text = "Not quite right. 💡 Have another go or ask for help."
+                    response_text = "Not quite right. 💡 Let me help you work through this step by step. What do you think the first step should be?"
+                yield json.dumps({"type": "full_hint", "content": response_text}) + "\n"
+                time.sleep(0.2)
+                for word in response_text.split():
+                    yield json.dumps({"type": "word", "content": word}) + "\n"
+                    time.sleep(0.1)
+                yield json.dumps({"type": "complete"}) + "\n"
+                return
 
-            # If this is a topic selection, get a random question
-            elif topic and len(conversation) == 1:
+            # Check if this is a request for an image question (either direct or follow-up)
+            is_image_request = (
+                topic == "Image Questions" or 
+                (conversation and any("image" in msg.get("content", "").lower() for msg in conversation[-2:]))
+            )
+
+            # If this is a topic selection or image question request
+            if (topic and len(conversation) == 1) or is_image_request:
                 print(f"[Debug] Getting question for topic: '{topic}'")
                 # Always use the question bank for Image Questions
-                if topic == "Image Questions":
-                    question = get_random_question(topic)
+                if is_image_request:
+                    question = get_random_question("Image Questions")
                     print(f"[Debug] Question returned: {question}")
                     if question and isinstance(question, dict):
                         question_text = question["question"]
                         session["expected_answer"] = question.get("answer")
                         image_url = question.get("image_url")
                         print(f"[Debug] Image URL: {image_url}")
-                        response_text = f"Here's a question about {topic}:\n\n"
+                        response_text = f"Here's a question about images:\n\n"
                         if image_url:
                             image_url = url_for('static', filename=image_url).replace(' ', '%20')
                             response_text += f"![Question Image]({image_url})\n\n"
@@ -179,9 +202,11 @@ def solve():
                     model="gpt-4.1",
                     instructions=(
                         "You are Mindy Maths Bot, a warm and encouraging maths helper for a 9-year-old UK student. "
-                        "You never give the final answer directly. Instead, you help the user work it out through hints and questions. "
-                        "If the student gives a correct answer, celebrate warmly — then offer to try another question or move on. "
-                        "Avoid asking for the answer again once it has been correctly given.\n\n"
+                        "You never give the final answer directly — unless the student already has. "
+                        "If the student gives a correct answer, celebrate warmly, confirm it clearly, and then offer to try another question or a new topic. "
+                        "If the user asks for another Image Question, always choose from the predefined list of image-based questions provided. Do not generate your own or imagine images."
+                        "Only guide with hints and questions when the answer is missing or incorrect. "
+                        "Never ask for the answer again if it's already been correctly given.\n\n"
                         "Format your responses in a clear, easy-to-read way:\n"
                         "- Add **two newlines** between bullet points or steps\n"
                         "- Use bullet points (•) for steps or hints\n"
