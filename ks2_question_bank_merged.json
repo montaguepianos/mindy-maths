@@ -1,84 +1,84 @@
 {
   "Place Value": [
-    "What is the value of the digit 7 in the number 3,742?"
+    {"question": "What is the value of the digit 7 in the number 3,742?", "answer": "700"}
   ],
   "Addition and Subtraction": [
-    "Calculate: 345 + 678"
+    {"question": "Calculate: 345 + 678", "answer": "1023"}
   ],
   "Multiplication and Division": [
-    "What is 36 divided by 6?"
+    {"question": "What is 36 divided by 6?", "answer": "6"}
   ],
   "Fractions": [
-    "What is one-half of 24?"
+    {"question": "What is one-half of 24?", "answer": "12"}
   ],
   "Decimals": [
-    "What is 0.6 + 0.4?"
+    {"question": "What is 0.6 + 0.4?", "answer": "1"}
   ],
   "Percentages": [
-    "What is 25% of 80?"
+    {"question": "What is 25% of 80?", "answer": "20"}
   ],
   "Algebra": [
-    "If x + 5 = 12, what is x?"
+    {"question": "If x + 5 = 12, what is x?", "answer": "7"}
   ],
   "Measurement": [
-    "A pencil is 15 cm long. A ruler is 30 cm long. How much longer is the ruler?",
-    "A jug contains 1.5 litres of water. A glass holds 0.25 litres. How many full glasses can you pour?",
-    "A pencil is 18 cm long. A pen is 6 cm shorter. How long is the pen?",
-    "A child walks 3 km to school and 3 km home. How far do they walk in 5 days?",
-    "Sam has \u00a310. He buys 3 books that each cost \u00a32.50. How much money does he have left?"
+    {"question": "A pencil is 15 cm long. A ruler is 30 cm long. How much longer is the ruler?", "answer": "15 cm"},
+    {"question": "A jug contains 1.5 litres of water. A glass holds 0.25 litres. How many full glasses can you pour?", "answer": "6"},
+    {"question": "A pencil is 18 cm long. A pen is 6 cm shorter. How long is the pen?", "answer": "12 cm"},
+    {"question": "A child walks 3 km to school and 3 km home. How far do they walk in 5 days?", "answer": "30 km"},
+    {"question": "Sam has £10. He buys 3 books that each cost £2.50. How much money does he have left?", "answer": "£2.50"}
   ],
   "Geometry": [
-    "A triangle has angles of 45\u00b0 and 90\u00b0. What is the third angle?"
+    {"question": "A triangle has angles of 45° and 90°. What is the third angle?", "answer": "45°"}
   ],
   "Statistics": [
-    "In a bar chart, the bar for apples is twice as high as the bar for oranges. What does this tell you?",
-    "There are 12 boys and 14 girls in a class. How many children are there altogether?",
-    "A tally chart shows 6 apples, 9 bananas, and 5 pears. What is the most popular fruit?"
+    {"question": "In a bar chart, the bar for apples is twice as high as the bar for oranges. What does this tell you?", "answer": "There are twice as many apples as oranges"},
+    {"question": "There are 12 boys and 14 girls in a class. How many children are there altogether?", "answer": "26"},
+    {"question": "A tally chart shows 6 apples, 9 bananas, and 5 pears. What is the most popular fruit?", "answer": "Bananas"}
   ],
   "Ratio and Proportion": [
-    "If there are 2 red balls for every 3 blue balls, how many red balls are there if there are 12 blue balls?"
+    {"question": "If there are 2 red balls for every 3 blue balls, how many red balls are there if there are 12 blue balls?", "answer": "8"}
   ],
   "Time": [
-    "What time is it 45 minutes after 3:15?"
+    {"question": "What time is it 45 minutes after 3:15?", "answer": "4:00"}
   ],
   "Money": [
-    "You have \u00a35. You buy a toy for \u00a33.75. How much change do you get?"
+    {"question": "You have £5. You buy a toy for £3.75. How much change do you get?", "answer": "£1.25"}
   ],
   "Number Patterns": [
-    "What are the next two numbers in this sequence: 2, 4, 8, 16, ...?"
+    {"question": "What are the next two numbers in this sequence: 2, 4, 8, 16, ...?", "answer": "32, 64"}
   ],
   "Word Problems": [
-    "Jenny has 3 boxes. Each box has 6 toys. How many toys does she have in total?"
+    {"question": "Jenny has 3 boxes. Each box has 6 toys. How many toys does she have in total?", "answer": "18"}
   ],
   "Fractions, Decimals & Percentages": [
-    "Jack says that 0.6 is greater than 2\u20445. Is he correct? Explain why.",
-    "Write 3\u20445 as a decimal.",
-    "Rosie says that 1\u20442 is the same as 0.25 + 0.2. Is she correct? Show how you know.",
-    "A shape is shaded 3\u204410 red and 4\u204410 blue. What fraction is not shaded?",
-    "What is 25% of 60?"
+    {"question": "Jack says that 0.6 is greater than 2⁄5. Is he correct? Explain why.", "answer": "Yes, 0.6 = 3/5 which is greater than 2/5"},
+    {"question": "Write 3⁄5 as a decimal.", "answer": "0.6"},
+    {"question": "Rosie says that 1⁄2 is the same as 0.25 + 0.2. Is she correct? Show how you know.", "answer": "No, 0.25 + 0.2 = 0.45"},
+    {"question": "A shape is shaded 3⁄10 red and 4⁄10 blue. What fraction is not shaded?", "answer": "3/10"},
+    {"question": "What is 25% of 60?", "answer": "15"}
   ],
   "Addition & Subtraction": [
-    "Write the missing number: 324 + ___ = 1000",
-    "Ali thinks 2.5 + 1.75 = 3.10. Is he correct? Explain your answer."
+    {"question": "Write the missing number: 324 + ___ = 1000", "answer": "676"},
+    {"question": "Ali thinks 2.5 + 1.75 = 3.10. Is he correct? Explain your answer.", "answer": "No, 2.5 + 1.75 = 4.25"}
   ],
   "Multiplication & Division": [
-    "What is the missing number? ___ \u00d7 8 = 64",
-    "6 books weigh a total of 3 kg. What is the weight of one book?",
-    "A pack of 5 apples costs \u00a32. How much do 3 packs cost?",
-    "Ben cycles 4 km every day. How many km does he cycle in 2 weeks?"
+    {"question": "What is the missing number? ___ × 8 = 64", "answer": "8"},
+    {"question": "6 books weigh a total of 3 kg. What is the weight of one book?", "answer": "0.5 kg"},
+    {"question": "A pack of 5 apples costs £2. How much do 3 packs cost?", "answer": "£6"},
+    {"question": "Ben cycles 4 km every day. How many km does he cycle in 2 weeks?", "answer": "56 km"}
   ],
-  "Number \u2013 Place Value": [
-    "Write the number one thousand and fifty-two in digits.",
-    "What is the value of the digit 7 in the number 7,304?",
-    "Round 3,726 to the nearest hundred."
+  "Number – Place Value": [
+    {"question": "Write the number one thousand and fifty-two in digits.", "answer": "1052"},
+    {"question": "What is the value of the digit 7 in the number 7,304?", "answer": "7000"},
+    {"question": "Round 3,726 to the nearest hundred.", "answer": "3700"}
   ],
-  "Geometry \u2013 Properties of Shapes": [
-    "A triangle has one angle of 90\u00b0. What type of triangle is it?",
-    "How many faces does a cube have?",
-    "What is the name of a 6-sided shape?"
+  "Geometry – Properties of Shapes": [
+    {"question": "A triangle has one angle of 90°. What type of triangle is it?", "answer": "Right-angled triangle"},
+    {"question": "How many faces does a cube have?", "answer": "6"},
+    {"question": "What is the name of a 6-sided shape?", "answer": "Hexagon"}
   ],
   "Multi-step Problem Solving": [
-    "A toy costs \u00a36. Sam buys 2 toys and a puzzle that costs \u00a34. How much does he spend in total?",
-    "On Monday, a shop sells 120 pens. On Tuesday, it sells 75 pens. How many more pens were sold on Monday?"
+    {"question": "A toy costs £6. Sam buys 2 toys and a puzzle that costs £4. How much does he spend in total?", "answer": "£16"},
+    {"question": "On Monday, a shop sells 120 pens. On Tuesday, it sells 75 pens. How many more pens were sold on Monday?", "answer": "45"}
   ]
 }
