@@ -23,7 +23,7 @@ app = Flask(__name__,
 
 # Load question bank
 print("[Debug] Loading question bank...")
-with open('KS2_question_bank.json', 'r') as f:
+with open('ks2_question_bank.json', 'r') as f:
     question_bank = json.load(f)
 print(f"[Debug] Question bank loaded with topics: {list(question_bank.keys())}")
 print(f"[Debug] Number of questions in Image Questions: {len(question_bank.get('Image Questions', []))}")
@@ -132,9 +132,9 @@ def solve():
                         print(f"[Debug] Image URL: {image_url}")
                         response_text = f"Here's a question about {topic}:\n\n"
                         if image_url:
-                            image_url = image_url.replace(' ', '%20')
-                            response_text += f"![Question Image](/{image_url})\n\n"
-                            print(f"[Debug] Final image URL: /{image_url}")
+                            image_url = url_for('static', filename=image_url).replace(' ', '%20')
+                            response_text += f"![Question Image]({image_url})\n\n"
+                            print(f"[Debug] Final image URL: {image_url}")
                         response_text += f"**{question_text}**\n\nWould you like to try and answer this one, or do you need more help?"
                     else:
                         response_text = f"I'm sorry, I don't have any image questions prepared yet. Would you like to try a different topic?"
@@ -146,8 +146,8 @@ def solve():
                             image_url = question.get("image_url")
                             response_text = f"Here's a question about {topic}:\n\n"
                             if image_url:
-                                image_url = image_url.replace(' ', '%20')
-                                response_text += f"![Question Image](/{image_url})\n\n"
+                                image_url = url_for('static', filename=image_url).replace(' ', '%20')
+                                response_text += f"![Question Image]({image_url})\n\n"
                             response_text += f"**{question_text}**\n\nWould you like to try and answer this one, or do you need more help?"
                         else:
                             response_text = f"Here's a question about {topic}:\n\n**{question}**\n\nWould you like to try and answer this one, or do you need more help?"

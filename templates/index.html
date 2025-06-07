@@ -210,6 +210,7 @@
 
         function setTopic(topic) {
             currentTopic = topic;
+            conversation = [];
             if (topic) {
                 // Add to conversation history
                 conversation.push({ role: "user", content: `Can you help me with ${topic}?` });
