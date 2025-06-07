@@ -34,6 +34,13 @@ def debug_static(filename):
     print(f"[Debug] Attempting to serve static file: {filename}")
     return send_from_directory(app.static_folder, filename)
 
+# Serve images from /images for backward compatibility
+@app.route('/images/<path:filename>')
+def serve_images(filename):
+    image_path = os.path.join(app.static_folder, 'images')
+    print(f"[Debug] Serving image from {image_path}: {filename}")
+    return send_from_directory(image_path, filename)
+
 # Mindy's voice settings
 MINDY_VOICE = "sage"  # Using sage voice as it's more cheerful
 MINDY_INSTRUCTIONS = """Affect/personality: A warm and encouraging maths helper for children
