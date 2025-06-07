@@ -3,32 +3,32 @@
         {
             "question": "Here is a drawing of a hexagonal prism. How many faces does the prism have?",
             "image_url": "images/hexagonal_prism_faces.png",
-            "answer": "6 plus the 2 ends. = 8 faces."
+            "answer": "8"
         },
         {
             "question": "Olivia buys a banana, an apple and a bag of nuts. She pays with three 50p coins. What is her change?",
             "image_url": "images/olivia_shopping.png",
-            "answer": "50 x3 =150  - 30+45+60 = Shen had £1.50 and her goods came to £1.35, leaving her 15p change."
+            "answer": "15p"
         },
         {
             "question": "How many children vote for strawberry out of a total of 402?",
             "image_url": "images/ice_cream_votes.png",
-            "answer": "Vanilla=87 Chocolate=154 Strawberry-? Mint=38 So 402 - 87 - 154 -38 =123"
+            "answer": "123"
         },
         {
             "question": "What was the lowest temperature?",
             "image_url": "images/temperature_lowest.png",
-            "answer": "The lowest Temperature was on Tuesday and Friday, both with low of -7C"
+            "answer": "-7°C"
         },
         {
             "question": "What was the difference between the highest and lowest temperatures on Wednesday?",
             "image_url": "images/temperature_difference.png",
-            "answer": "The low on Weds was -5 and the High Was  3, so there was 8degree C difference."
+            "answer": "8"
         },
         {
             "question": "One Saturday afternoon, a total of 234,869 people attended three rugby matches.\n• 80,978 people attended match 1\n• 72,319 people attended match 2\nHow many people attended match 3?",
             "image_url": "images/rugby_attendance.png",
-            "answer": "234,869 - 80,978 - 72,319 =81,572"
+            "answer": "81572"
         }
     ],
     "Addition & Subtraction": [
