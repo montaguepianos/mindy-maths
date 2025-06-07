@@ -32,75 +32,75 @@
         }
     ],
     "Addition & Subtraction": [
-        "Write the missing number: 324 + ___ = 1000",
-        "Ali thinks 2.5 + 1.75 = 3.10. Is he correct? Explain your answer.",
-        "A shop sells 120 pens on Monday and 75 pens on Tuesday. How many more pens were sold on Monday?",
-        "Sam has £10. He buys 3 books that each cost £2.50. How much money does he have left?",
-        "A child walks 3 km to school and 3 km home. How far do they walk in 5 days?"
+        {"question": "Write the missing number: 324 + ___ = 1000", "answer": "676"},
+        {"question": "Ali thinks 2.5 + 1.75 = 3.10. Is he correct? Explain your answer.", "answer": "No, 2.5 + 1.75 = 4.25"},
+        {"question": "A shop sells 120 pens on Monday and 75 pens on Tuesday. How many more pens were sold on Monday?", "answer": "45"},
+        {"question": "Sam has £10. He buys 3 books that each cost £2.50. How much money does he have left?", "answer": "£2.50"},
+        {"question": "A child walks 3 km to school and 3 km home. How far do they walk in 5 days?", "answer": "30 km"}
     ],
     "Multiplication & Division": [
-        "What is the missing number? ___ × 8 = 64",
-        "6 books weigh a total of 3 kg. What is the weight of one book?",
-        "A pack of 5 apples costs £2. How much do 3 packs cost?",
-        "Ben cycles 4 km every day. How many km does he cycle in 2 weeks?",
-        "There are 24 children in a class. They are put into groups of 4. How many groups are there?"
+        {"question": "What is the missing number? ___ × 8 = 64", "answer": "8"},
+        {"question": "6 books weigh a total of 3 kg. What is the weight of one book?", "answer": "0.5 kg"},
+        {"question": "A pack of 5 apples costs £2. How much do 3 packs cost?", "answer": "£6"},
+        {"question": "Ben cycles 4 km every day. How many km does he cycle in 2 weeks?", "answer": "56 km"},
+        {"question": "There are 24 children in a class. They are put into groups of 4. How many groups are there?", "answer": "6"}
     ],
     "Fractions & Decimals": [
-        "Jack says that 0.6 is greater than 2/5. Is he correct? Explain why.",
-        "Write 3/5 as a decimal.",
-        "Rosie says that 1/2 is the same as 0.25 + 0.2. Is she correct? Show how you know.",
-        "A shape is shaded 3/10 red and 4/10 blue. What fraction is not shaded?",
-        "What is 25% of 60?"
+        {"question": "Jack says that 0.6 is greater than 2/5. Is he correct? Explain why.", "answer": "Yes, 0.6 = 3/5 which is greater than 2/5"},
+        {"question": "Write 3/5 as a decimal.", "answer": "0.6"},
+        {"question": "Rosie says that 1/2 is the same as 0.25 + 0.2. Is she correct? Show how you know.", "answer": "No, 0.25 + 0.2 = 0.45"},
+        {"question": "A shape is shaded 3/10 red and 4/10 blue. What fraction is not shaded?", "answer": "3/10"},
+        {"question": "What is 25% of 60?", "answer": "15"}
     ],
     "Place Value": [
-        "Write the number one thousand and fifty-two in digits.",
-        "What is the value of the digit 7 in the number 7,304?",
-        "Round 3,726 to the nearest hundred.",
-        "Write 4,567 in expanded form.",
-        "Which is greater: 3,456 or 3,465? Explain why."
+        {"question": "Write the number one thousand and fifty-two in digits.", "answer": "1052"},
+        {"question": "What is the value of the digit 7 in the number 7,304?", "answer": "7000"},
+        {"question": "Round 3,726 to the nearest hundred.", "answer": "3700"},
+        {"question": "Write 4,567 in expanded form.", "answer": "4,000 + 500 + 60 + 7"},
+        {"question": "Which is greater: 3,456 or 3,465? Explain why.", "answer": "3,465 is greater"}
     ],
     "Time": [
-        "A film starts at 2:30 pm and lasts for 1 hour and 45 minutes. What time does it finish?",
-        "How many minutes are there in 2 hours and 30 minutes?",
-        "A train journey takes 3 hours and 20 minutes. If it leaves at 9:15 am, what time will it arrive?",
-        "Write 2:45 pm in 24-hour time.",
-        "How many days are there in 3 weeks?"
+        {"question": "A film starts at 2:30 pm and lasts for 1 hour and 45 minutes. What time does it finish?", "answer": "4:15 pm"},
+        {"question": "How many minutes are there in 2 hours and 30 minutes?", "answer": "150"},
+        {"question": "A train journey takes 3 hours and 20 minutes. If it leaves at 9:15 am, what time will it arrive?", "answer": "12:35 pm"},
+        {"question": "Write 2:45 pm in 24-hour time.", "answer": "14:45"},
+        {"question": "How many days are there in 3 weeks?", "answer": "21"}
     ],
     "Measurement": [
-        "A jug contains 1.5 litres of water. A glass holds 0.25 litres. How many full glasses can you pour?",
-        "A pencil is 18 cm long. A pen is 6 cm shorter. How long is the pen?",
-        "A rectangle has a length of 8 cm and a width of 5 cm. What is its perimeter?",
-        "A square has an area of 36 cm². What is the length of one side?",
-        "Convert 2.5 km to metres."
+        {"question": "A jug contains 1.5 litres of water. A glass holds 0.25 litres. How many full glasses can you pour?", "answer": "6"},
+        {"question": "A pencil is 18 cm long. A pen is 6 cm shorter. How long is the pen?", "answer": "12 cm"},
+        {"question": "A rectangle has a length of 8 cm and a width of 5 cm. What is its perimeter?", "answer": "26 cm"},
+        {"question": "A square has an area of 36 cm². What is the length of one side?", "answer": "6 cm"},
+        {"question": "Convert 2.5 km to metres.", "answer": "2500 m"}
     ],
     "Money": [
-        "Sam has £10. He buys 3 books that each cost £2.50. How much money does he have left?",
-        "A pack of 5 apples costs £2. How much do 3 packs cost?",
-        "If you have three £5 notes and four £2 coins, how much money do you have?",
-        "If you have £20 and spend £12.75, how much change do you get?"
+        {"question": "Sam has £10. He buys 3 books that each cost £2.50. How much money does he have left?", "answer": "£2.50"},
+        {"question": "A pack of 5 apples costs £2. How much do 3 packs cost?", "answer": "£6"},
+        {"question": "If you have three £5 notes and four £2 coins, how much money do you have?", "answer": "£23"},
+        {"question": "If you have £20 and spend £12.75, how much change do you get?", "answer": "£7.25"}
     ],
     "Shape": [
-        "How many faces does a cube have?",
-        "What is the name of a 6-sided shape?",
-        "How many lines of symmetry does a square have?",
-        "What is the difference between a regular and irregular pentagon?"
+        {"question": "How many faces does a cube have?", "answer": "6"},
+        {"question": "What is the name of a 6-sided shape?", "answer": "Hexagon"},
+        {"question": "How many lines of symmetry does a square have?", "answer": "4"},
+        {"question": "What is the difference between a regular and irregular pentagon?", "answer": "Regular has equal sides and angles; irregular does not"}
     ],
     "Data & Graphs": [
-        "There are 12 boys and 14 girls in a class. How many children are there altogether?",
-        "A tally chart shows 6 apples, 9 bananas, and 5 pears. What is the most popular fruit?"
+        {"question": "There are 12 boys and 14 girls in a class. How many children are there altogether?", "answer": "26"},
+        {"question": "A tally chart shows 6 apples, 9 bananas, and 5 pears. What is the most popular fruit?", "answer": "Bananas"}
     ],
     "Position & Direction": [
-        "If you turn 90° clockwise from facing north, which direction are you facing?",
-        "What are the coordinates of point A if it is 3 units right and 2 units up from the origin?",
-        "If you turn 180° from facing east, which direction are you facing?",
-        "What is the difference between a translation and a rotation?",
-        "How many right angles are there in a complete turn?"
+        {"question": "If you turn 90° clockwise from facing north, which direction are you facing?", "answer": "East"},
+        {"question": "What are the coordinates of point A if it is 3 units right and 2 units up from the origin?", "answer": "(3, 2)"},
+        {"question": "If you turn 180° from facing east, which direction are you facing?", "answer": "West"},
+        {"question": "What is the difference between a translation and a rotation?", "answer": "A translation slides a shape; a rotation turns it"},
+        {"question": "How many right angles are there in a complete turn?", "answer": "4"}
     ],
     "Reasoning & Word Problems": [
-        "A toy costs £6. Sam buys 2 toys and a puzzle that costs £4. How much does he spend in total?",
-        "On Monday, a shop sells 120 pens. On Tuesday, it sells 75 pens. How many more pens were sold on Monday?",
-        "A rectangle has a length of 8 cm and a width of 5 cm. What is its perimeter?",
-        "If you have three £5 notes and four £2 coins, how much money do you have?",
-        "A train journey takes 3 hours and 20 minutes. If it leaves at 9:15 am, what time will it arrive?"
+        {"question": "A toy costs £6. Sam buys 2 toys and a puzzle that costs £4. How much does he spend in total?", "answer": "£16"},
+        {"question": "On Monday, a shop sells 120 pens. On Tuesday, it sells 75 pens. How many more pens were sold on Monday?", "answer": "45"},
+        {"question": "A rectangle has a length of 8 cm and a width of 5 cm. What is its perimeter?", "answer": "26 cm"},
+        {"question": "If you have three £5 notes and four £2 coins, how much money do you have?", "answer": "£23"},
+        {"question": "A train journey takes 3 hours and 20 minutes. If it leaves at 9:15 am, what time will it arrive?", "answer": "12:35 pm"}
     ]
 }
