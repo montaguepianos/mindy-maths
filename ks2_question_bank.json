@@ -1,0 +1,106 @@
+{
+    "Image Questions": [
+        {
+            "question": "Here is a drawing of a hexagonal prism. How many faces does the prism have?",
+            "image_url": "images/hexagonal_prism_faces.png",
+            "answer": "6 plus the 2 ends. = 8 faces."
+        },
+        {
+            "question": "Olivia buys a banana, an apple and a bag of nuts. She pays with three 50p coins. What is her change?",
+            "image_url": "images/olivia_shopping.png",
+            "answer": "50 x3 =150  - 30+45+60 = Shen had £1.50 and her goods came to £1.35, leaving her 15p change."
+        },
+        {
+            "question": "How many children vote for strawberry out of a total of 402?",
+            "image_url": "images/ice_cream_votes.png",
+            "answer": "Vanilla=87 Chocolate=154 Strawberry-? Mint=38 So 402 - 87 - 154 -38 =123"
+        },
+        {
+            "question": "What was the lowest temperature?",
+            "image_url": "images/temperature_lowest.png",
+            "answer": "The lowest Temperature was on Tuesday and Friday, both with low of -7C"
+        },
+        {
+            "question": "What was the difference between the highest and lowest temperatures on Wednesday?",
+            "image_url": "images/temperature_difference.png",
+            "answer": "The low on Weds was -5 and the High Was  3, so there was 8degree C difference."
+        },
+        {
+            "question": "One Saturday afternoon, a total of 234,869 people attended three rugby matches.\n• 80,978 people attended match 1\n• 72,319 people attended match 2\nHow many people attended match 3?",
+            "image_url": "images/rugby_attendance.png",
+            "answer": "234,869 - 80,978 - 72,319 =81,572"
+        }
+    ],
+    "Addition & Subtraction": [
+        "Write the missing number: 324 + ___ = 1000",
+        "Ali thinks 2.5 + 1.75 = 3.10. Is he correct? Explain your answer.",
+        "A shop sells 120 pens on Monday and 75 pens on Tuesday. How many more pens were sold on Monday?",
+        "Sam has £10. He buys 3 books that each cost £2.50. How much money does he have left?",
+        "A child walks 3 km to school and 3 km home. How far do they walk in 5 days?"
+    ],
+    "Multiplication & Division": [
+        "What is the missing number? ___ × 8 = 64",
+        "6 books weigh a total of 3 kg. What is the weight of one book?",
+        "A pack of 5 apples costs £2. How much do 3 packs cost?",
+        "Ben cycles 4 km every day. How many km does he cycle in 2 weeks?",
+        "There are 24 children in a class. They are put into groups of 4. How many groups are there?"
+    ],
+    "Fractions & Decimals": [
+        "Jack says that 0.6 is greater than 2/5. Is he correct? Explain why.",
+        "Write 3/5 as a decimal.",
+        "Rosie says that 1/2 is the same as 0.25 + 0.2. Is she correct? Show how you know.",
+        "A shape is shaded 3/10 red and 4/10 blue. What fraction is not shaded?",
+        "What is 25% of 60?"
+    ],
+    "Place Value": [
+        "Write the number one thousand and fifty-two in digits.",
+        "What is the value of the digit 7 in the number 7,304?",
+        "Round 3,726 to the nearest hundred.",
+        "Write 4,567 in expanded form.",
+        "Which is greater: 3,456 or 3,465? Explain why."
+    ],
+    "Time": [
+        "A film starts at 2:30 pm and lasts for 1 hour and 45 minutes. What time does it finish?",
+        "How many minutes are there in 2 hours and 30 minutes?",
+        "A train journey takes 3 hours and 20 minutes. If it leaves at 9:15 am, what time will it arrive?",
+        "Write 2:45 pm in 24-hour time.",
+        "How many days are there in 3 weeks?"
+    ],
+    "Measurement": [
+        "A jug contains 1.5 litres of water. A glass holds 0.25 litres. How many full glasses can you pour?",
+        "A pencil is 18 cm long. A pen is 6 cm shorter. How long is the pen?",
+        "A rectangle has a length of 8 cm and a width of 5 cm. What is its perimeter?",
+        "A square has an area of 36 cm². What is the length of one side?",
+        "Convert 2.5 km to metres."
+    ],
+    "Money": [
+        "Sam has £10. He buys 3 books that each cost £2.50. How much money does he have left?",
+        "A pack of 5 apples costs £2. How much do 3 packs cost?",
+        "If you have three £5 notes and four £2 coins, how much money do you have?",
+        "If you have £20 and spend £12.75, how much change do you get?"
+    ],
+    "Shape": [
+        "How many faces does a cube have?",
+        "What is the name of a 6-sided shape?",
+        "How many lines of symmetry does a square have?",
+        "What is the difference between a regular and irregular pentagon?"
+    ],
+    "Data & Graphs": [
+        "There are 12 boys and 14 girls in a class. How many children are there altogether?",
+        "A tally chart shows 6 apples, 9 bananas, and 5 pears. What is the most popular fruit?"
+    ],
+    "Position & Direction": [
+        "If you turn 90° clockwise from facing north, which direction are you facing?",
+        "What are the coordinates of point A if it is 3 units right and 2 units up from the origin?",
+        "If you turn 180° from facing east, which direction are you facing?",
+        "What is the difference between a translation and a rotation?",
+        "How many right angles are there in a complete turn?"
+    ],
+    "Reasoning & Word Problems": [
+        "A toy costs £6. Sam buys 2 toys and a puzzle that costs £4. How much does he spend in total?",
+        "On Monday, a shop sells 120 pens. On Tuesday, it sells 75 pens. How many more pens were sold on Monday?",
+        "A rectangle has a length of 8 cm and a width of 5 cm. What is its perimeter?",
+        "If you have three £5 notes and four £2 coins, how much money do you have?",
+        "A train journey takes 3 hours and 20 minutes. If it leaves at 9:15 am, what time will it arrive?"
+    ]
+}

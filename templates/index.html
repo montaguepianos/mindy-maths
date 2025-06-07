@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mindy Maths Bot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #e8f5e9; /* Soft pastel green background */
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            gap: 20px;
+        }
+        .logo {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent; /* Transparent background */
+    border: none;                  /* No border */
+    box-shadow: none;              /* No shadow */
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+        .logo img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+        }
+        .header-text {
+            flex-grow: 1;
+        }
+        .main-container {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+            background-color: #82bfea; /* Soft pastel blue */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            height: calc(100vh - 180px); /* Account for header and margins */
+            min-height: 500px;
+        }
+        .chat-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            min-width: 0; /* Prevents flex item from overflowing */
+            height: 100%;
+        }
+        .chat-container {
+            border: 1px solid #b3e5fc;
+            padding: 20px;
+            border-radius: 10px;
+            flex: 1;
+            overflow-y: auto;
+            background-color: #e1f5fe; /* Very light pastel blue */
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+        }
+        .message {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .user-message {
+            background-color: #b3e5fc; /* Pastel blue */
+            margin-left: 20%;
+            border: 1px solid #81d4fa;
+        }
+        .mindy-message {
+            background-color: #c8e6c9; /* Pastel green */
+            margin-right: 20%;
+            border: 1px solid #a5d6a7;
+        }
+        .input-container {
+            display: flex;
+            gap: 10px;
+            background-color: #e3f2fd;
+            padding: 10px 0;
+            position: sticky;
+            bottom: 0;
+        }
+        #question {
+            flex-grow: 1;
+            padding: 12px;
+            border: 1px solid #b3e5fc;
+            border-radius: 8px;
+            font-size: 16px;
+            background-color: #e1f5fe; /* Very light pastel blue */
+        }
+        button {
+    padding: 12px 24px;
+    background-color: #81c784; /* Pastel green */
+    color: #1b5e20; /* Dark green text */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s;
+    margin-right: 12px; /* Add space to the right */
+}
+        button:hover {
+            background-color: #66bb6a; /* Slightly darker pastel green */
+        }
+        .thinking {
+            display: inline-block;
+            margin-left: 10px;
+        }
+        .thinking::after {
+            content: '...';
+            animation: thinking 1.5s infinite;
+        }
+        @keyframes thinking {
+            0% { content: '.'; }
+            33% { content: '..'; }
+            66% { content: '...'; }
+        }
+        .topics-section {
+            flex: 0 0 250px; /* Slightly narrower */
+            padding: 25px;
+            background-color: #c8e6c9; /* Pastel green */
+            border-radius: 10px;
+            border: 1px solid #a5d6a7;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            height: fit-content;
+        }
+        .topics-section label {
+            display: block;
+            margin-bottom: 15px;
+            font-weight: bold;
+            color: #1b5e20; /* Dark green text */
+            font-size: 18px;
+        }
+        .topics-section select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #a5d6a7;
+            border-radius: 8px;
+            font-size: 16px;
+            background-color: #e1f5fe; /* Very light pastel blue */
+            color: #1b5e20; /* Dark green text */
+            cursor: pointer;
+        }
+        .topics-section select option {
+            padding: 12px;
+            background-color: #e1f5fe; /* Very light pastel blue */
+        }
+        .topics-section select:focus {
+            outline: none;
+            border-color: #81c784;
+            box-shadow: 0 0 0 2px rgba(129, 199, 132, 0.2);
+        }
+        h1 {
+            color: #1b5e20; /* Dark green text */
+            margin: 0;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="/static/images/Mindy.png" alt="Mindy Maths Bot">
+        </div>
+        <div class="header-text">
+            <h1>Mindy Maths - For Key Stage 2 - Years 5 & 6</h1>
+        </div>
+    </div>
+    
+    <div class="main-container">
+        <div class="chat-section">
+            <div class="chat-container" id="chat"></div>
+            <div class="input-container">
+                <input type="text" id="question" placeholder="Type your maths question...">
+                <button onclick="askMindy()">Ask Mindy</button>
+            </div>
+        </div>
+        
+        <div class="topics-section">
+            <label for="topics">Choose a topic to get started:</label>
+            <select id="topics" onchange="setTopic(this.value)">
+                <option value="">-- Please choose --</option>
+                <option value="Image Questions">🖼️ Image Questions</option>
+                <option value="Addition & Subtraction">➕ Addition & Subtraction</option>
+                <option value="Multiplication & Division">✖️ Multiplication & Division</option>
+                <option value="Fractions & Decimals">🍰 Fractions & Decimals</option>
+                <option value="Place Value">🔢 Place Value</option>
+                <option value="Time">⏱ Time</option>
+                <option value="Measurement">📏 Measurement</option>
+                <option value="Money">💰 Money</option>
+                <option value="Shape">🔺 Shape</option>
+                <option value="Data & Graphs">📊 Data & Graphs</option>
+                <option value="Position & Direction">🧭 Position & Direction</option>
+                <option value="Reasoning & Word Problems">🧠 Reasoning & Word Problems</option>
+            </select>
+        </div>
+    </div>
+
+    <script>
+        let conversation = [];
+        let currentTopic = "";
+
+        function setTopic(topic) {
+            currentTopic = topic;
+            if (topic) {
+                // Add to conversation history
+                conversation.push({ role: "user", content: `Can you help me with ${topic}?` });
+                
+                // Make API call with topic
+                fetch("/solve", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ 
+                        conversation: conversation,
+                        topic: topic
+                    }),
+                })
+                .then(response => {
+                    const reader = response.body.getReader();
+                    let buffer = "";
+                    let fullHint = "";
+                    let currentText = "";
+                    
+                    function processStream({ done, value }) {
+                        if (done) {
+                            return;
+                        }
+                        
+                        buffer += new TextDecoder().decode(value);
+                        const lines = buffer.split("\n");
+                        buffer = lines.pop();
+                        
+                        for (const line of lines) {
+                            if (line.trim()) {
+                                try {
+                                    const data = JSON.parse(line);
+                                    
+                                    switch (data.type) {
+                                        case "full_hint":
+                                            fullHint = data.content;
+                                            speak_text(fullHint);
+                                            addMessage(fullHint, "mindy");
+                                            break;
+                                        case "word":
+                                            currentText += data.content + " ";
+                                            break;
+                                        case "complete":
+                                            conversation.push({ role: "assistant", content: fullHint });
+                                            break;
+                                        case "error":
+                                            console.error("Error:", data.content);
+                                            break;
+                                    }
+                                } catch (e) {
+                                    console.error("Error parsing JSON:", e);
+                                }
+                            }
+                        }
+                        
+                        return reader.read().then(processStream);
+                    }
+                    
+                    return reader.read().then(processStream);
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    addMessage("Sorry, I encountered an error. Please try again.", "mindy");
+                });
+            }
+        }
+
+        function addMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}-message`;
+            
+            // Convert markdown-style images to HTML with absolute path
+            text = text.replace(/!\[(.*?)\]\((.*?)\)/g, (match, alt, src) => {
+                console.log("[Debug] Processing image:", src);
+                return `<img src="${src}" alt="${alt}" style="max-width: 100%; height: auto; margin: 10px 0; border-radius: 8px; border: 1px solid #ccc;">`;
+            });
+            
+            // Convert markdown bold to HTML
+            text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            
+            // Convert newlines to <br>
+            text = text.replace(/\n/g, '<br>');
+            
+            messageDiv.innerHTML = text;
+            document.getElementById("chat").appendChild(messageDiv);
+            document.getElementById("chat").scrollTop = document.getElementById("chat").scrollHeight;
+        }
+
+        async function speak_text(text) {
+            try {
+                console.log("[Mindy Voice] Sending text to backend for voice generation:", text.substring(0, 50) + "...");
+                const response = await fetch('/speak', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ text })
+                });
+                
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    console.error("[Mindy Voice] Server error:", errorData);
+                    throw new Error(`Voice generation failed: ${errorData.error || response.statusText}`);
+                }
+                
+                console.log("[Mindy Voice] Received audio response");
+                const audioBlob = await response.blob();
+                console.log("[Mindy Voice] Audio blob size:", audioBlob.size);
+                
+                if (audioBlob.size === 0) {
+                    throw new Error("Received empty audio response");
+                }
+                
+                const audioUrl = URL.createObjectURL(audioBlob);
+                const audio = new Audio(audioUrl);
+                
+                // Wait for audio to be loaded before playing
+                await new Promise((resolve) => {
+                    audio.addEventListener('canplaythrough', resolve, { once: true });
+                    audio.load();
+                });
+                
+                audio.onerror = (e) => {
+                    console.error("[Mindy Voice] Audio playback error:", e);
+                };
+                
+                console.log("[Mindy Voice] Starting audio playback");
+                await audio.play();
+                console.log("[Mindy Voice] Audio playback started");
+                
+                return audio; // Return the audio element for synchronization
+            } catch (error) {
+                console.error("[Mindy Voice] Error playing voice:", error);
+                throw error;
+            }
+        }
+
+        function askMindy(question = null) {
+            const questionInput = document.getElementById("question");
+            const questionText = question || questionInput.value.trim();
+            
+            if (!questionText) return;
+            
+            // Add user message to chat
+            addMessage(questionText, "user");
+            questionInput.value = "";
+            
+            // Add to conversation history
+            conversation.push({ role: "user", content: questionText });
+            
+            // Show thinking state
+            const thinkingDiv = document.createElement("div");
+            thinkingDiv.className = "message mindy-message";
+            thinkingDiv.innerHTML = "Thinking<span class='thinking'></span>";
+            document.getElementById("chat").appendChild(thinkingDiv);
+            
+            // Make API call
+            fetch("/solve", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ conversation: conversation }),
+            })
+            .then(response => {
+                const reader = response.body.getReader();
+                let buffer = "";
+                let fullHint = "";
+                let currentText = "";
+                let audioElement = null;
+                
+                function processStream({ done, value }) {
+                    if (done) {
+                        // Remove thinking message
+                        thinkingDiv.remove();
+                        return;
+                    }
+                    
+                    // Convert the chunk to text and add to buffer
+                    buffer += new TextDecoder().decode(value);
+                    
+                    // Process complete messages
+                    const lines = buffer.split("\n");
+                    buffer = lines.pop(); // Keep the last incomplete line in the buffer
+                    
+                    for (const line of lines) {
+                        if (line.trim()) {
+                            try {
+                                const data = JSON.parse(line);
+                                
+                                switch (data.type) {
+                                    case "full_hint":
+                                        fullHint = data.content;
+                                        // Start voice playback
+                                        speak_text(fullHint);
+                                        // Add the formatted message
+                                        addMessage(fullHint, "mindy");
+                                        break;
+                                    case "word":
+                                        currentText += data.content + " ";
+                                        break;
+                                    case "complete":
+                                        // Add the complete message to conversation
+                                        conversation.push({ role: "assistant", content: fullHint });
+                                        break;
+                                    case "error":
+                                        console.error("Error:", data.content);
+                                        break;
+                                }
+                            } catch (e) {
+                                console.error("Error parsing JSON:", e);
+                            }
+                        }
+                    }
+                    
+                    // Continue reading
+                    return reader.read().then(processStream);
+                }
+                
+                return reader.read().then(processStream);
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                thinkingDiv.remove();
+                addMessage("Sorry, I encountered an error. Please try again.", "mindy");
+            });
+        }
+
+        // Handle Enter key in input
+        document.getElementById("question").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") {
+                askMindy();
+            }
+        });
+    </script>
+</body>
+</html>
