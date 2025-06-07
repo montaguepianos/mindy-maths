@@ -1,7 +1,8 @@
 import os
-from flask import Flask, render_template, request, jsonify, Response, stream_with_context, send_file, url_for, send_from_directory
+from flask import Flask, render_template, request, jsonify, Response, stream_with_context, send_file, url_for, send_from_directory, session
 from dotenv import load_dotenv
 from openai import OpenAI, AsyncOpenAI
+from maths_engine import check_answer
 import json
 import time
 import io
@@ -16,14 +17,15 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 async_client = AsyncOpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 # Initialise Flask
-app = Flask(__name__, 
+app = Flask(__name__,
     static_url_path='/static',
     static_folder='static'
 )
+app.secret_key = os.getenv("FLASK_SECRET_KEY", "change-me")
 
 # Load question bank
 print("[Debug] Loading question bank...")
-with open('KS2_question_bank.json', 'r') as f:
+with open('ks2_question_bank.json', 'r') as f:
     question_bank = json.load(f)
 print(f"[Debug] Question bank loaded with topics: {list(question_bank.keys())}")
 print(f"[Debug] Number of questions in Image Questions: {len(question_bank.get('Image Questions', []))}")
@@ -119,8 +121,17 @@ def solve():
             # Send thinking state
             yield json.dumps({"type": "thinking", "content": "Thinking..."}) + "\n"
             
+            # Check for an expected answer from a previous question
+            if "expected_answer" in session and not topic:
+                user_msg = conversation[-1].get("content", "") if conversation else ""
+                if check_answer(user_msg, session["expected_answer"]):
+                    response_text = "That's correct! 🎉 Great job! Want another question?"
+                    session.pop("expected_answer", None)
+                else:
+                    response_text = "Not quite right. 💡 Have another go or ask for help."
+
             # If this is a topic selection, get a random question
-            if topic and len(conversation) == 1:
+            elif topic and len(conversation) == 1:
                 print(f"[Debug] Getting question for topic: '{topic}'")
                 # Always use the question bank for Image Questions
                 if topic == "Image Questions":
@@ -128,6 +139,7 @@ def solve():
                     print(f"[Debug] Question returned: {question}")
                     if question and isinstance(question, dict):
                         question_text = question["question"]
+                        session["expected_answer"] = question.get("answer")
                         image_url = question.get("image_url")
                         print(f"[Debug] Image URL: {image_url}")
                         response_text = f"Here's a question about {topic}:\n\n"
@@ -143,6 +155,7 @@ def solve():
                     if question:
                         if isinstance(question, dict):
                             question_text = question["question"]
+                            session["expected_answer"] = question.get("answer")
                             image_url = question.get("image_url")
                             response_text = f"Here's a question about {topic}:\n\n"
                             if image_url:
