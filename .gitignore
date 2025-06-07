@@ -3,3 +3,5 @@ __pycache__/
 *.pyc
 .env
 .DS_Store
+temp_speech.mp3
+static/uploads/
