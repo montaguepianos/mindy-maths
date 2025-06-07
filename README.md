@@ -10,6 +10,7 @@ A friendly and interactive maths helper bot for Key Stage 2 students (Years 5 & 
 - Topic-based question selection
 - Step-by-step problem-solving guidance
 - Warm and encouraging teaching style
+- Uses **SymPy** to safely check students' answers
 
 ## Setup
 
